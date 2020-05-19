@@ -10,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace InterfaceAppPresentationLayer
 {
     /// <summary>
-    /// Interaction logic for AddTrainingWindow.xaml
+    /// Interaction logic for AddTrainingPage.xaml
     /// </summary>
-    public partial class AddTrainingWindow : Window
+    public partial class AddTrainingPage : Page
     {
         List<RunningSession> RunningSessions;
         List<CyclingSession> CyclingSessions;
 
-        public AddTrainingWindow()
+        public AddTrainingPage()
         {
             InitializeComponent();
 
@@ -48,18 +49,14 @@ namespace InterfaceAppPresentationLayer
             String inputDuration = InputDuration.Text;
             String inputComment = InputComment.Text;
 
-            
+
 
             SaveButton.Content = "Save Training";
         }
 
         private void MenuDashboardClickEvent(object sender, RoutedEventArgs e)
         {
-            MainWindow window = new MainWindow();
-            window.Height = this.Height;
-            window.Width = this.Width;
-            window.Show();
-            this.Close();
+           
         }
     }
 }

@@ -19,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
+    <ProjectReference Include="..\DomainLibrary\DomainLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SplashScreen Include="Assets\splashscreen.png" />
   </ItemGroup>
 

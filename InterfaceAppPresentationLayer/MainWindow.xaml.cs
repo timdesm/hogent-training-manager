@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using DomainLibrary.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -23,6 +25,9 @@ namespace InterfaceAppPresentationLayer
     {
         private DataTable dataTable;
 
+        List<RunningSession> RunningSessions;
+        List<CyclingSession> CyclingSessions;
+
 
         public MainWindow()
         {
@@ -41,22 +46,24 @@ namespace InterfaceAppPresentationLayer
             dataTable.Columns.Add(new DataColumn("Comment", typeof(string)));
             DataTable.ItemsSource = dataTable.DefaultView;
 
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "Beetje examle text voor de debug" +
-                "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
-            addDataLine("Cicle", "40 km", "01:05:00", "30 km/h", "N/A", "Racing bike", "21-04-2020 07:00", "");
+
+            TrainingManager m = new TrainingManager(new UnitOfWork(new TrainingContext("Production")));
+            RunningSessions = m.GetAllRunningSessions();
+            CyclingSessions = m.GetAllCyclingSessions();
+
+            CountTotal.Text =  "" + (RunningSessions.Count + CyclingSessions.Count);
+            CountRunning.Text = "" + RunningSessions.Count;
+            CountCycling.Text = "" + CyclingSessions.Count;
+
+            foreach(RunningSession session in RunningSessions)
+            {
+                addDataLine(session.TrainingType.ToString(), session.Distance.ToString(), session.Time.ToString(), session.AverageSpeed.ToString(), "", "", session.When.ToString(), session.Comments);
+            }
+
+            foreach (CyclingSession session in CyclingSessions)
+            {
+                addDataLine(session.TrainingType.ToString(), session.Distance.ToString(), session.Time.ToString(), session.AverageSpeed.ToString(), "", session.BikeType.ToString(), session.When.ToString(), session.Comments);
+            }
         }
 
         private void addDataLine(String type, String length, String time, String speed, String watt, String cicleType, String date, String comment)
@@ -75,19 +82,20 @@ namespace InterfaceAppPresentationLayer
 
         private void DataDeleteClickEvent(object sender, RoutedEventArgs e)
         {
-            List<int> list = DataTable.SelectedItems.Cast<DataRowView>().Select(x => dataTable.Rows.IndexOf(x.Row)).ToList();
-            foreach(int i in list)
+            if(MessageBox.Show("Are you sure you want to remove those items?", "Configuration", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if(dataTable.Rows.Count > i)
-                    dataTable.Rows.RemoveAt(i);
+                List<int> list = DataTable.SelectedItems.Cast<DataRowView>().Select(x => dataTable.Rows.IndexOf(x.Row)).ToList();
+                foreach (int i in list)
+                {
+                    if (dataTable.Rows.Count > i)
+                        dataTable.Rows.RemoveAt(i);
+                }
             }
         }
 
         private void MenuAddTrainingClickEvent(object sender, RoutedEventArgs e)
         {
             AddTrainingWindow window = new AddTrainingWindow();
-            window.Height = this.Height;
-            window.Width = this.Width;
             window.Show();
             this.Close();
         }

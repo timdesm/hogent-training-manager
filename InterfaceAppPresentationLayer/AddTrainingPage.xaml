@@ -1,14 +1,17 @@
-﻿<Window xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
-        x:Class="InterfaceAppPresentationLayer.AddTrainingWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Background="{DynamicResource MaterialDesignPaper}"
+﻿<Page xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"  
+      x:Class="InterfaceAppPresentationLayer.AddTrainingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InterfaceAppPresentationLayer"
+      Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Title="Trainings Manager" Height="600" Width="1080" MinWidth="1080" MinHeight="600">
-    <Window.Resources>
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1080"
+      Title="Add Training" MinWidth="1080" MinHeight="600">
+
+    <Page.Resources>
         <ResourceDictionary>
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
                 <Setter Property="Template">
@@ -86,7 +89,7 @@
                 </Setter>
             </Style>
         </ResourceDictionary>
-    </Window.Resources>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -188,7 +191,7 @@
                             <StackPanel Margin="10">
 
                                 <TextBlock Margin="5 0 0 20" FontSize="22" Foreground="White">Add New Training</TextBlock>
-                                
+
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="1*"/>
@@ -257,7 +260,7 @@
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
-                                    
+
                                     <Grid Grid.Column="0">
                                         <TextBlock Margin="5 0 0 50" Text="Length" Foreground="White" />
                                         <TextBox x:Name="InputLength" Margin="5" materialDesign:HintAssist.Hint="40" materialDesign:HintAssist.HelperText="Length is in km" Height="25" Foreground="White" />
@@ -338,5 +341,4 @@
         </Grid>
 
     </Grid>
-</Window>
- 
+</Page>

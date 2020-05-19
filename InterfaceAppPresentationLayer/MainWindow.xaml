@@ -169,7 +169,7 @@
                             </Grid>
                             <TextBlock Text="Totaal bicicle trainings" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" VerticalAlignment="Top" Foreground="White"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10 30">
-                                <TextBlock x:Name="CountCicle" Text="N/A" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="50"/>
+                                <TextBlock x:Name="CountCycling" Text="N/A" FontFamily="Champagne &amp; Limousines" Foreground="White" FontSize="50"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20" Cursor="Hand">
                                 <materialDesign:PackIcon Kind="InfoOutline" Foreground="#FF6195F1" Width="15" Height="15" VerticalAlignment="Center" Margin="5 0"/>
