@@ -318,19 +318,19 @@
                 <Button Margin="10" Width="230" Height="50" HorizontalAlignment="Left">
                     <Grid Width="200">
                         <materialDesign:PackIcon Kind="Run" VerticalAlignment="Center" Height="28" Width="28"/>
-                        <TextBlock HorizontalAlignment="Center" Text="RUNNING REPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
+                        <TextBlock HorizontalAlignment="Center" Text="RUNNING RAPPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
                     </Grid>
                 </Button>
                 <Button Margin="10" Width="230" Height="50" HorizontalAlignment="Left">
                     <Grid Width="200">
                         <materialDesign:PackIcon Kind="Cycling" VerticalAlignment="Center" Height="28" Width="28"/>
-                        <TextBlock HorizontalAlignment="Center" Text="CYCILING REPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
+                        <TextBlock HorizontalAlignment="Center" Text="CYCILING RAPPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
                     </Grid>
                 </Button>
                 <Button Margin="10" Width="230" Height="50" HorizontalAlignment="Left">
                     <Grid Width="200">
                         <materialDesign:PackIcon Kind="Weight" VerticalAlignment="Center" Height="28" Width="28"/>
-                        <TextBlock HorizontalAlignment="Center" Text="TRAINING REPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
+                        <TextBlock HorizontalAlignment="Center" Text="TRAINING RAPPORT" FontFamily="Segoe UI"  VerticalAlignment="Center" Height="21"/>
                     </Grid>
                 </Button>
                 <TextBlock Margin="10" Text="Copyright © 2020 Tim De Smet" Foreground="#6e6e6e" HorizontalAlignment="Center" />
