@@ -22,6 +22,24 @@ namespace InterfaceAppPresentationLayer
             InitializeComponent();
         }
 
+        private void FormSaveClickEevent(object sender, RoutedEventArgs e)
+        {
+            SaveButton.Content = "Saving...";
+
+            String inputDate = InputDate.Text;
+            String inputTime = InputTime.Text;
+            String inputTrainingType = InputTrainingType.Text;
+            String inputSportType = InputSportType.Text;
+            String inputBikeType = InputBikeType.Text;
+            String inputLength = InputLength.Text;
+            String inputDuration = InputDuration.Text;
+            String inputComment = InputComment.Text;
+
+            
+
+            SaveButton.Content = "Save Training";
+        }
+
         private void MenuDashboardClickEvent(object sender, RoutedEventArgs e)
         {
             MainWindow window = new MainWindow();
