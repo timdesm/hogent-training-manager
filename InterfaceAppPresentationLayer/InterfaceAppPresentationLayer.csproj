@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Copyright>Tim De Smet</Copyright>
+    <Company>Codentox</Company>
+    <Authors>Tim De Smet</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\splashscreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="1.2.5" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="Assets\splashscreen.png" />
+  </ItemGroup>
+
+</Project>
