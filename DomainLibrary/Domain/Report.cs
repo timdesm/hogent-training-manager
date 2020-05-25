@@ -11,10 +11,9 @@ namespace DomainLibrary.Domain
         public int RunningSessions { get; set; }
         public TimeSpan TotalTrainingTime { get; set; }
         public int TotalRunningDistance { get; set; }
+        public TimeSpan TotalCyclingTrainingTime { get; set; }
         public TimeSpan TotalRunningTrainingTime { get; set; }
         public float TotalCyclingDistance { get; set; }
-        public TimeSpan TotalCyclingTrainingTime { get; set; }
-
         public DateTime StartDate { get;  set; }
         public DateTime EndDate { get;  set; }
         public IList<CyclingSession> Rides { get;  set; }
