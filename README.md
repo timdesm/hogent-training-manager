@@ -1,1 +1,1 @@
-# hogent-training-manager
+# Training Manager
